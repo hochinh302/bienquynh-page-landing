@@ -1,0 +1,2059 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biển Quỳnh — Nơi biển kể chuyện — Theo dõi Fanpage</title>
+  <meta name="description"
+    content="Theo dõi Fanpage Biển Quỳnh — Nơi biển kể chuyện để cập nhật homestay, nhà hàng hải sản, review xác thực và những góc biển đẹp nhất tại Biển Quỳnh, Nghệ An." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Cormorant+Garamond:wght@600;700&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    /* ══════════════════════════════════════════════
+       VARIABLES & RESET
+    ══════════════════════════════════════════════ */
+    :root {
+      --ocean: #0B5D69;
+      --teal: #2C8C99;
+      --sky: #5BC4D4;
+      --coral: #FF6B4A;
+      --coral-soft: #FF8C70;
+      --sun: #FFA726;
+      --sand: #FFF4EC;
+      --white: #FFFFFF;
+      --ink: #163046;
+      --gray: #667085;
+      --border: #E4EFF2;
+      --bg: #F0FAFB;
+
+      --font-main: 'Nunito', sans-serif;
+      --font-head: 'Cormorant Garamond', serif;
+
+      --r-sm: 10px;
+      --r-md: 18px;
+      --r-lg: 28px;
+      --r-xl: 40px;
+      --sh-sm: 0 2px 12px rgba(11, 93, 105, .10);
+      --sh-md: 0 6px 28px rgba(11, 93, 105, .14);
+      --sh-lg: 0 16px 56px rgba(11, 93, 105, .18);
+      --tr: .3s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: var(--bg);
+      color: var(--ink);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 22px;
+    }
+
+    /* ══════════════════════════════════════════════
+       FLOATING TOPBAR
+    ══════════════════════════════════════════════ */
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, .88);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(11, 93, 105, .08);
+      transition: box-shadow var(--tr);
+    }
+
+    .topbar.shadow {
+      box-shadow: var(--sh-md);
+    }
+
+    .topbar__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      gap: 16px;
+    }
+
+    .topbar__logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .topbar__logo img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .topbar__logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .topbar__logo-text span:first-child {
+      font-family: var(--font-head);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ocean);
+    }
+
+    .topbar__logo-text span:last-child {
+      font-size: .62rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--coral);
+    }
+
+    .topbar__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #1877F2, #0a5dc2);
+      color: #fff;
+      font-weight: 800;
+      font-size: .88rem;
+      padding: 10px 22px;
+      border-radius: 100px;
+      transition: all var(--tr);
+      white-space: nowrap;
+      box-shadow: 0 4px 14px rgba(24, 119, 242, .35);
+    }
+
+    .topbar__cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(24, 119, 242, .45);
+    }
+
+    .topbar__cta svg {
+      flex-shrink: 0;
+    }
+
+    /* ══════════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════════ */
+    .hero {
+      min-height: 100vh;
+      padding: 100px 0 60px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(160deg, #E0F7FA 0%, #F0FAFB 40%, #FFF4EC 100%);
+    }
+
+    /* Decorative blobs */
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(44, 140, 153, .15) 0%, transparent 70%);
+      top: -100px;
+      right: -150px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255, 107, 74, .12) 0%, transparent 70%);
+      bottom: 80px;
+      left: -100px;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero__inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    /* Left */
+    .hero__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(24, 119, 242, .1);
+      color: #1877F2;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    .hero__eyebrow .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #1877F2;
+      animation: pulse-blue 1.8s ease-in-out infinite;
+    }
+
+    @keyframes pulse-blue {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.6);
+        opacity: .5;
+      }
+    }
+
+    .hero__title {
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+
+    .hero__title .highlight {
+      background: linear-gradient(135deg, var(--teal), var(--sky));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero__title .highlight-coral {
+      background: linear-gradient(135deg, var(--coral), var(--sun));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero__sub {
+      font-size: 1.05rem;
+      color: var(--gray);
+      line-height: 1.75;
+      margin-bottom: 36px;
+      max-width: 480px;
+    }
+
+    .hero__chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: 100px;
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--ink);
+      padding: 7px 14px;
+      box-shadow: var(--sh-sm);
+    }
+
+    .hero__cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .btn-fb {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #1877F2, #0a5dc2);
+      color: #fff;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 16px 32px;
+      border-radius: var(--r-lg);
+      box-shadow: 0 6px 24px rgba(24, 119, 242, .4);
+      transition: all var(--tr);
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-main);
+    }
+
+    .btn-fb:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 36px rgba(24, 119, 242, .5);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gray);
+      font-weight: 700;
+      font-size: .92rem;
+      padding: 14px 20px;
+      border-radius: var(--r-lg);
+      border: 2px solid var(--border);
+      background: #fff;
+      transition: all var(--tr);
+      cursor: pointer;
+      font-family: var(--font-main);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--teal);
+      color: var(--teal);
+      transform: translateY(-2px);
+      box-shadow: var(--sh-sm);
+    }
+
+    .hero__social-proof {
+      margin-top: 36px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .avatar-stack {
+      display: flex;
+    }
+
+    .avatar-stack .av {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2.5px solid #fff;
+      margin-right: -10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      box-shadow: var(--sh-sm);
+      flex-shrink: 0;
+    }
+
+    .av-1 {
+      background: linear-gradient(135deg, #FFDDE1, #FFB3C1);
+    }
+
+    .av-2 {
+      background: linear-gradient(135deg, #B3E8F5, #7DD4E0);
+    }
+
+    .av-3 {
+      background: linear-gradient(135deg, #FFE0B2, #FFCC80);
+    }
+
+    .av-4 {
+      background: linear-gradient(135deg, #C8E6C9, #A5D6A7);
+    }
+
+    .av-5 {
+      background: linear-gradient(135deg, #E1BEE7, #CE93D8);
+    }
+
+    .social-proof-text {
+      font-size: .85rem;
+      color: var(--gray);
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .social-proof-text strong {
+      color: var(--ink);
+    }
+
+    /* ── Right: Phone mockup ── */
+    .hero__phone-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .phone {
+      width: 280px;
+      background: #111;
+      border-radius: 44px;
+      padding: 14px;
+      box-shadow:
+        0 0 0 2px #333,
+        0 32px 80px rgba(0, 0, 0, .35),
+        0 8px 20px rgba(0, 0, 0, .2);
+      position: relative;
+      z-index: 2;
+      animation: float-phone 4s ease-in-out infinite;
+    }
+
+    @keyframes float-phone {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+    .phone__screen {
+      background: #fff;
+      border-radius: 32px;
+      overflow: hidden;
+    }
+
+    /* Facebook Fanpage UI sim */
+    .fb-cover {
+      height: 130px;
+      background: linear-gradient(135deg, var(--ocean) 0%, var(--teal) 60%, var(--sky) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .fb-cover__wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+    .fb-cover__sun {
+      position: absolute;
+      top: 12px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      background: radial-gradient(circle, #FFA726, #FF8F00);
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(255, 167, 38, .6);
+    }
+
+    .fb-cover__text {
+      position: absolute;
+      bottom: 24px;
+      left: 14px;
+      color: rgba(255, 255, 255, .9);
+      font-size: .55rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+    }
+
+    .fb-profile-area {
+      padding: 0 14px 0;
+      position: relative;
+    }
+
+    .fb-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      background: #fff;
+      margin-top: -26px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--sh-sm);
+    }
+
+    .fb-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 4px;
+    }
+
+    .fb-avatar .emoji-fallback {
+      font-size: 1.5rem;
+    }
+
+    .fb-page-name {
+      margin-top: 6px;
+      font-size: .7rem;
+      font-weight: 800;
+      color: #111;
+    }
+
+    .fb-page-cat {
+      font-size: .58rem;
+      color: #666;
+      margin-top: 1px;
+    }
+
+    .fb-stats-row {
+      display: flex;
+      gap: 10px;
+      margin: 8px 0;
+      padding: 8px 14px;
+      background: #f9f9f9;
+      border-radius: var(--r-sm);
+      margin: 8px 14px;
+    }
+
+    .fb-stat {
+      text-align: center;
+      flex: 1;
+    }
+
+    .fb-stat__n {
+      font-size: .65rem;
+      font-weight: 800;
+      color: #111;
+    }
+
+    .fb-stat__l {
+      font-size: .5rem;
+      color: #888;
+    }
+
+    .fb-action-row {
+      display: flex;
+      gap: 6px;
+      padding: 8px 14px;
+    }
+
+    .fb-btn {
+      flex: 1;
+      padding: 6px 4px;
+      border-radius: 6px;
+      font-size: .6rem;
+      font-weight: 700;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+
+    .fb-btn--blue {
+      background: #1877F2;
+      color: #fff;
+    }
+
+    .fb-btn--gray {
+      background: #e4e6ea;
+      color: #050505;
+    }
+
+    /* Posts preview */
+    .fb-posts {
+      padding: 0 14px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .fb-post {
+      background: #fff;
+      border: 1px solid #e4e6ea;
+      border-radius: 10px;
+      overflow: hidden;
+      font-size: .58rem;
+    }
+
+    .fb-post__header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 8px 4px;
+    }
+
+    .fb-post__av {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .8rem;
+      flex-shrink: 0;
+    }
+
+    .fb-post__av-1 {
+      background: linear-gradient(135deg, var(--teal), var(--ocean));
+    }
+
+    .fb-post__info-name {
+      font-weight: 800;
+      color: #111;
+    }
+
+    .fb-post__info-time {
+      color: #888;
+      font-size: .5rem;
+    }
+
+    .fb-post__text {
+      padding: 0 8px 6px;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    .fb-post__img {
+      height: 70px;
+      overflow: hidden;
+    }
+
+    .fb-post__img-1 {
+      background: linear-gradient(160deg, var(--ocean), var(--sky));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+    }
+
+    .fb-post__img-2 {
+      background: linear-gradient(160deg, #FF8C70, #FFA726);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+    }
+
+    .fb-post__reactions {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 8px;
+      color: #888;
+      font-size: .52rem;
+      border-top: 1px solid #f0f0f0;
+    }
+
+    /* Floating badges around phone */
+    .phone-badge {
+      position: absolute;
+      background: #fff;
+      border-radius: var(--r-md);
+      padding: 10px 14px;
+      box-shadow: var(--sh-lg);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      z-index: 3;
+      animation: float-badge 3.5s ease-in-out infinite;
+    }
+
+    .phone-badge__icon {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .phone-badge__text {
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .phone-badge__sub {
+      font-size: .62rem;
+      color: var(--gray);
+    }
+
+    .pb-1 {
+      top: 5%;
+      right: -10%;
+      animation-delay: 0s;
+    }
+
+    .pb-2 {
+      bottom: 25%;
+      left: -12%;
+      animation-delay: .8s;
+    }
+
+    .pb-3 {
+      bottom: 5%;
+      right: -8%;
+      animation-delay: 1.6s;
+    }
+
+    @keyframes float-badge {
+
+      0%,
+      100% {
+        transform: translateY(0) rotate(-1deg);
+      }
+
+      50% {
+        transform: translateY(-8px) rotate(1deg);
+      }
+    }
+
+    /* ══════════════════════════════════════════════
+       WHY FOLLOW
+    ══════════════════════════════════════════════ */
+    .why {
+      padding: 90px 0;
+      background: #fff;
+    }
+
+    .section-tag {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 14px;
+    }
+
+    .section-tag--teal {
+      background: rgba(44, 140, 153, .1);
+      color: var(--teal);
+    }
+
+    .section-tag--coral {
+      background: rgba(255, 107, 74, .1);
+      color: var(--coral);
+    }
+
+    .section-tag--sun {
+      background: rgba(255, 167, 38, .1);
+      color: #E65100;
+    }
+
+    .section-title {
+      font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+      font-weight: 900;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--gray);
+      line-height: 1.7;
+      max-width: 560px;
+    }
+
+    .section-header {
+      margin-bottom: 52px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .why-card {
+      background: var(--bg);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 32px 26px;
+      transition: all var(--tr);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .why-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--teal), var(--sky));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--tr);
+    }
+
+    .why-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--sh-lg);
+      border-color: transparent;
+    }
+
+    .why-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .why-card__emoji {
+      font-size: 2.8rem;
+      margin-bottom: 18px;
+      display: block;
+    }
+
+    .why-card__title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    .why-card__desc {
+      font-size: .9rem;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    /* ══════════════════════════════════════════════
+       CONTENT PREVIEW (what you'll see on fanpage)
+    ══════════════════════════════════════════════ */
+    .content-preview {
+      padding: 90px 0;
+      background: var(--bg);
+    }
+
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .post-card {
+      background: #fff;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: var(--sh-sm);
+      border: 1.5px solid var(--border);
+      transition: all var(--tr);
+    }
+
+    .post-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--sh-md);
+    }
+
+    .post-card__visual {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pc-v1 {
+      background: linear-gradient(160deg, #0B5D69 0%, #2C8C99 60%, #5BC4D4 100%);
+    }
+
+    .pc-v2 {
+      background: linear-gradient(160deg, #FF8C70 0%, #FFA726 100%);
+    }
+
+    .pc-v3 {
+      background: linear-gradient(160deg, #4CAF50 0%, #8BC34A 100%);
+    }
+
+    .pc-v4 {
+      background: linear-gradient(160deg, #9C27B0 0%, #E91E63 100%);
+    }
+
+    .pc-v5 {
+      background: linear-gradient(160deg, #1877F2 0%, #0a5dc2 100%);
+    }
+
+    .pc-v6 {
+      background: linear-gradient(160deg, #F06292 0%, #FFB74D 100%);
+    }
+
+    .post-card__visual-text {
+      position: absolute;
+      bottom: 12px;
+      left: 14px;
+      right: 14px;
+      color: rgba(255, 255, 255, .9);
+      font-size: .78rem;
+      font-weight: 700;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+    }
+
+    .post-card__body {
+      padding: 18px 20px 20px;
+    }
+
+    .post-card__tag {
+      display: inline-block;
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+      margin-bottom: 10px;
+    }
+
+    .post-card__title {
+      font-size: .95rem;
+      font-weight: 800;
+      color: var(--ink);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .post-card__desc {
+      font-size: .82rem;
+      color: var(--gray);
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+
+    .post-card__meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: .75rem;
+      color: var(--gray);
+      font-weight: 600;
+    }
+
+    .post-card__reactions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .post-card__reactions span {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* ══════════════════════════════════════════════
+       STATS / TRUST BAR
+    ══════════════════════════════════════════════ */
+    .stats-bar {
+      padding: 60px 0;
+      background: linear-gradient(135deg, var(--ocean), var(--teal));
+    }
+
+    .stats-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+
+    .stat-item {
+      color: #fff;
+    }
+
+    .stat-item__n {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #fff, rgba(255, 255, 255, .8));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-item__l {
+      font-size: .88rem;
+      color: rgba(255, 255, 255, .75);
+      font-weight: 600;
+    }
+
+    /* ══════════════════════════════════════════════
+       TESTIMONIALS
+    ══════════════════════════════════════════════ */
+    .testimonials {
+      padding: 90px 0;
+      background: #fff;
+    }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testi-card {
+      background: var(--sand);
+      border-radius: var(--r-lg);
+      padding: 28px 24px;
+      position: relative;
+      transition: all var(--tr);
+    }
+
+    .testi-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--sh-md);
+    }
+
+    .testi-card__quote {
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--teal);
+      opacity: .3;
+      margin-bottom: -10px;
+      font-family: Georgia, serif;
+    }
+
+    .testi-card__text {
+      font-size: .92rem;
+      color: var(--ink);
+      line-height: 1.7;
+      font-weight: 600;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testi-card__footer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testi-card__av {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+
+    .tav-1 {
+      background: linear-gradient(135deg, #FFDDE1, #FFB3C1);
+    }
+
+    .tav-2 {
+      background: linear-gradient(135deg, #B3E8F5, #7DD4E0);
+    }
+
+    .tav-3 {
+      background: linear-gradient(135deg, #FFE0B2, #FFCC80);
+    }
+
+    .testi-card__name {
+      font-size: .88rem;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .testi-card__role {
+      font-size: .75rem;
+      color: var(--gray);
+    }
+
+    .testi-card__stars {
+      margin-left: auto;
+      color: #FFA726;
+      font-size: .85rem;
+      letter-spacing: 1px;
+    }
+
+    /* ══════════════════════════════════════════════
+       MAIN CTA BLOCK
+    ══════════════════════════════════════════════ */
+    .cta-block {
+      padding: 90px 0;
+      background: var(--bg);
+    }
+
+    .cta-card {
+      max-width: 860px;
+      margin: 0 auto;
+      background: linear-gradient(135deg, var(--ocean) 0%, var(--teal) 60%, #5BC4D4 100%);
+      border-radius: var(--r-xl);
+      padding: 64px 56px;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-card::before {
+      content: '';
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      background: rgba(255, 255, 255, .05);
+      border-radius: 50%;
+      top: -200px;
+      right: -150px;
+    }
+
+    .cta-card::after {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: rgba(255, 255, 255, .04);
+      border-radius: 50%;
+      bottom: -120px;
+      left: -80px;
+    }
+
+    .cta-card__emoji {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-card__title {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-card__sub {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, .85);
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-card__btns {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-fb-lg {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #1877F2;
+      color: #fff;
+      font-weight: 900;
+      font-size: 1.1rem;
+      padding: 18px 40px;
+      border-radius: var(--r-lg);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .3);
+      transition: all var(--tr);
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-main);
+    }
+
+    .btn-fb-lg:hover {
+      background: #0a5dc2;
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, .35);
+    }
+
+    .btn-outline-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, .15);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      font-weight: 700;
+      font-size: .95rem;
+      padding: 16px 32px;
+      border-radius: var(--r-lg);
+      border: 2px solid rgba(255, 255, 255, .4);
+      transition: all var(--tr);
+      cursor: pointer;
+      font-family: var(--font-main);
+    }
+
+    .btn-outline-white:hover {
+      background: rgba(255, 255, 255, .25);
+      border-color: rgba(255, 255, 255, .7);
+      transform: translateY(-2px);
+    }
+
+    .cta-card__note {
+      margin-top: 20px;
+      font-size: .8rem;
+      color: rgba(255, 255, 255, .6);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ══════════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════════ */
+    footer {
+      background: var(--ink);
+      color: #fff;
+      padding: 40px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-brand img {
+      height: 36px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+
+    .footer-name {
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, .9);
+    }
+
+    .footer-tagline {
+      font-size: .75rem;
+      color: rgba(255, 255, 255, .45);
+      margin-top: 2px;
+      font-style: italic;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: .82rem;
+      color: rgba(255, 255, 255, .5);
+      transition: color var(--tr);
+    }
+
+    .footer-links a:hover {
+      color: var(--sky);
+    }
+
+    .footer-copy {
+      font-size: .78rem;
+      color: rgba(255, 255, 255, .35);
+    }
+
+    /* ══════════════════════════════════════════════
+       SCROLL ANIMATIONS
+    ══════════════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.d1 {
+      transition-delay: .08s;
+    }
+
+    .reveal.d2 {
+      transition-delay: .16s;
+    }
+
+    .reveal.d3 {
+      transition-delay: .24s;
+    }
+
+    .reveal.d4 {
+      transition-delay: .32s;
+    }
+
+    .reveal.d5 {
+      transition-delay: .40s;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ══════════════════════════════════════════════
+       NOTIFICATION TOAST
+    ══════════════════════════════════════════════ */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--ink);
+      color: #fff;
+      padding: 14px 24px;
+      border-radius: 100px;
+      font-size: .9rem;
+      font-weight: 700;
+      box-shadow: var(--sh-xl, 0 24px 80px rgba(22, 48, 70, .25));
+      z-index: 9999;
+      opacity: 0;
+      transition: all .4s cubic-bezier(.4, 0, .2, 1);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .toast.success {
+      background: #1A7F5E;
+    }
+
+    /* ══════════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════════ */
+    @media (max-width: 960px) {
+      .hero__inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .hero__phone-wrap {
+        order: -1;
+      }
+
+      .phone {
+        width: 240px;
+      }
+
+      .pb-1,
+      .pb-2,
+      .pb-3 {
+        display: none;
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .preview-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stats-inner {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+
+      .testi-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      .cta-card {
+        padding: 44px 28px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .preview-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-inner {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero__cta-group {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .btn-fb,
+      .btn-ghost {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .topbar__cta {
+        display: none;
+      }
+
+      .cta-card__btns {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-fb-lg,
+      .btn-outline-white {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ══ TOPBAR ══════════════════════════════════════════════ -->
+  <header class="topbar" id="topbar">
+    <div class="container topbar__inner">
+      <a href="#" class="topbar__logo">
+        <img src="logo.png" alt="Biển Quỳnh — Nơi biển kể chuyện"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="topbar__logo-text" style="display:none;">
+          <span>Biển Quỳnh</span>
+          <span>Travel</span>
+        </div>
+      </a>
+      <a class="topbar__cta" href="https://www.facebook.com/BienQuynhOffical" target="_blank" rel="noopener"
+        id="topCTA">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+          <path
+            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+        </svg>
+        Theo dõi Fanpage
+      </a>
+    </div>
+  </header>
+
+  <!-- ══ HERO ════════════════════════════════════════════════ -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero__inner">
+
+        <!-- Left content -->
+        <div class="hero__left">
+          <div class="hero__eyebrow">
+            <span class="dot"></span>
+            Fanpage chính thức trên Facebook
+          </div>
+
+          <h1 class="hero__title">
+            Theo dõi để không bỏ lỡ<br />
+            góc <span class="highlight">biển đẹp nhất</span><br />
+            <span class="highlight-coral">Biển Quỳnh 🌊</span>
+          </h1>
+
+          <p class="hero__sub">
+            Review homestay thật, nhà hàng hải sản uy tín, hình ảnh sóng biển và những mẹo du lịch Biển Quỳnh — tất cả
+            cập nhật hàng ngày trên Fanpage.
+          </p>
+
+          <div class="hero__chips">
+            <span class="chip">📸 Ảnh biển đẹp mỗi ngày</span>
+            <span class="chip">🦐 Nhà hàng & giá niêm yết</span>
+            <span class="chip">🏡 Review homestay thật</span>
+            <span class="chip">🗺️ Tips du lịch địa phương</span>
+          </div>
+
+          <div class="hero__cta-group">
+            <a class="btn-fb" href="https://www.facebook.com/BienQuynhOffical" target="_blank" rel="noopener"
+              id="heroCTA">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
+                <path
+                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+              👍 Like & Follow ngay
+            </a>
+            <a class="btn-ghost" href="#why">
+              Xem tại sao nên follow
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6,9 12,15 18,9" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="hero__social-proof">
+            <div class="avatar-stack">
+              <div class="av av-1">😊</div>
+              <div class="av av-2">🧡</div>
+              <div class="av av-3">😎</div>
+              <div class="av av-4">🌟</div>
+              <div class="av av-5">❤️</div>
+            </div>
+            <div class="social-proof-text">
+              <strong>Hàng trăm người</strong> đã theo dõi<br />
+              Cùng cộng đồng yêu Biển Quỳnh 🌊
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Phone mockup -->
+        <div class="hero__phone-wrap">
+          <!-- Floating badges -->
+          <div class="phone-badge pb-1">
+            <span class="phone-badge__icon">🔔</span>
+            <div>
+              <div class="phone-badge__text">Thông báo mới!</div>
+              <div class="phone-badge__sub">Homestay view biển vừa đăng</div>
+            </div>
+          </div>
+
+          <div class="phone-badge pb-2">
+            <span class="phone-badge__icon">❤️</span>
+            <div>
+              <div class="phone-badge__text">+248 lượt thích</div>
+              <div class="phone-badge__sub">Ảnh sóng biển sáng nay</div>
+            </div>
+          </div>
+
+          <div class="phone-badge pb-3">
+            <span class="phone-badge__icon">⭐</span>
+            <div>
+              <div class="phone-badge__text">Review 5 sao</div>
+              <div class="phone-badge__sub">"Đúng như mô tả!"</div>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="phone">
+            <div class="phone__screen">
+              <!-- Cover -->
+              <div class="fb-cover">
+                <svg class="fb-cover__wave" viewBox="0 0 280 30" xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="none">
+                  <path d="M0,15 C70,30 140,0 280,15 L280,30 L0,30 Z" fill="rgba(255,255,255,0.08)" />
+                </svg>
+                <div class="fb-cover__sun"></div>
+                <div class="fb-cover__text">🌊 Biển Quỳnh, Nghệ An</div>
+              </div>
+
+              <!-- Profile area -->
+              <div class="fb-profile-area">
+                <div class="fb-avatar" id="phoneAvatar">
+                  <img src="logo.png" alt="Logo"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+                  <span class="emoji-fallback" style="display:none;">🌊</span>
+                </div>
+                <div class="fb-page-name">Biển Quỳnh — Nơi biển kể chuyện</div>
+                <div class="fb-page-cat">🌊 Nền tảng du lịch · Biển Quỳnh, Nghệ An</div>
+              </div>
+
+              <!-- Stats -->
+              <div class="fb-stats-row">
+                <div class="fb-stat">
+                  <div class="fb-stat__n" id="phoneFollowers">—</div>
+                  <div class="fb-stat__l">Followers</div>
+                </div>
+                <div class="fb-stat">
+                  <div class="fb-stat__n">48</div>
+                  <div class="fb-stat__l">Bài viết</div>
+                </div>
+                <div class="fb-stat">
+                  <div class="fb-stat__n">4.9⭐</div>
+                  <div class="fb-stat__l">Đánh giá</div>
+                </div>
+              </div>
+
+              <!-- Action buttons -->
+              <div class="fb-action-row">
+                <button class="fb-btn fb-btn--blue" onclick="handleFollow(this)">👍 Thích</button>
+                <button class="fb-btn fb-btn--gray">💬 Nhắn tin</button>
+                <button class="fb-btn fb-btn--gray">···</button>
+              </div>
+
+              <!-- Posts -->
+              <div class="fb-posts">
+                <div class="fb-post">
+                  <div class="fb-post__header">
+                    <div class="fb-post__av fb-post__av-1">🌊</div>
+                    <div>
+                      <div class="fb-post__info-name">Biển Quỳnh — Nơi biển kể chuyện</div>
+                      <div class="fb-post__info-time">2 giờ trước · 🌍</div>
+                    </div>
+                  </div>
+                  <div class="fb-post__text">🏡 Homestay mới tại khu vực bãi Nam — phòng view biển, giá từ 350k/đêm.
+                    Review thật từ khách đã ở!</div>
+                  <div class="fb-post__img fb-post__img-1">🏡</div>
+                  <div class="fb-post__reactions">
+                    <span>❤️😍 124</span>
+                    <span>💬 38 · 🔁 12</span>
+                  </div>
+                </div>
+
+                <div class="fb-post">
+                  <div class="fb-post__header">
+                    <div class="fb-post__av fb-post__av-1">🌊</div>
+                    <div>
+                      <div class="fb-post__info-name">Biển Quỳnh — Nơi biển kể chuyện</div>
+                      <div class="fb-post__info-time">Hôm qua · 🌍</div>
+                    </div>
+                  </div>
+                  <div class="fb-post__text">🦐 TOP 5 quán hải sản ngon-rẻ-sạch ở Biển Quỳnh mùa hè 2024 — có bảng giá
+                    đầy đủ nhé!</div>
+                  <div class="fb-post__img fb-post__img-2">🦐</div>
+                  <div class="fb-post__reactions">
+                    <span>❤️👍 248</span>
+                    <span>💬 71 · 🔁 56</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ WHY FOLLOW ═══════════════════════════════════════════ -->
+  <section class="why" id="why">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag section-tag--teal">Tại sao nên follow?</span>
+        <h2 class="section-title">Nội dung bạn không tìm được ở nơi khác 👇</h2>
+        <p class="section-sub">Fanpage Biển Quỳnh — Nơi biển kể chuyện là kênh thông tin duy nhất chuyên sâu về du lịch
+          Biển Quỳnh — từ địa phương, viết cho người địa phương và khách du lịch thật sự.</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card reveal d1">
+          <span class="why-card__emoji">📸</span>
+          <h3 class="why-card__title">Ảnh & video biển thật mỗi ngày</h3>
+          <p class="why-card__desc">Không ảnh stock, không filter quá đà. Ảnh thật từ bãi biển Biển Quỳnh — sóng sáng,
+            hoàng hôn, bình minh — để bạn thấy biển đúng như sẽ đến.</p>
+        </div>
+        <div class="why-card reveal d2">
+          <span class="why-card__emoji">🏡</span>
+          <h3 class="why-card__title">Review homestay & khách sạn xác thực</h3>
+          <p class="why-card__desc">Chỉ review từ người đã ở thật. Có ảnh phòng thực tế, giá niêm yết, thông tin liên hệ
+            — không lo bị lừa hoặc thất vọng khi đến nơi.</p>
+        </div>
+        <div class="why-card reveal d3">
+          <span class="why-card__emoji">🦐</span>
+          <h3 class="why-card__title">Nhà hàng hải sản & bảng giá minh bạch</h3>
+          <p class="why-card__desc">Top quán ngon, giá niêm yết rõ ràng, có đặt bàn trước. Không sợ bị chặt chém hay gọi
+            lên rồi nghe giá giật mình.</p>
+        </div>
+        <div class="why-card reveal d4">
+          <span class="why-card__emoji">🗺️</span>
+          <h3 class="why-card__title">Hướng dẫn & tips du lịch cực thực tế</h3>
+          <p class="why-card__desc">Từ lịch trình 1 ngày, 2 ngày đến mẹo đặt phòng mùa cao điểm, tránh đường tắc, chợ cá
+            sáng sớm — tất cả đều từ người địa phương.</p>
+        </div>
+        <div class="why-card reveal d5">
+          <span class="why-card__emoji">🔔</span>
+          <h3 class="why-card__title">Cập nhật sớm nhất khi nền tảng ra mắt</h3>
+          <p class="why-card__desc">Followers Fanpage sẽ là những người đầu tiên biết khi Biển Quỳnh — Nơi biển kể
+            chuyện chính thức mở — và nhận ưu đãi đặc biệt cho người follow sớm.</p>
+        </div>
+        <div class="why-card reveal d1" style="border-color:rgba(255,107,74,.2); background: rgba(255,107,74,.04);">
+          <span class="why-card__emoji">🎁</span>
+          <h3 class="why-card__title">Mini-game & voucher độc quyền</h3>
+          <p class="why-card__desc">Fanpage thường xuyên tổ chức mini-game tặng voucher ăn uống, đêm nghỉ miễn phí và ưu
+            đãi từ đối tác — chỉ dành cho followers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTENT PREVIEW ═══════════════════════════════════════ -->
+  <section class="content-preview">
+    <div class="container">
+      <div class="section-header reveal" style="text-align:center;">
+        <span class="section-tag section-tag--coral">Nội dung nổi bật</span>
+        <h2 class="section-title">Những gì bạn sẽ thấy trên Fanpage 👀</h2>
+      </div>
+
+      <div class="preview-grid">
+        <div class="post-card reveal d1">
+          <div class="post-card__visual pc-v1">
+            🌅
+            <div class="post-card__visual-text">Hoàng hôn Biển Quỳnh — 18:24</div>
+          </div>
+          <div class="post-card__body">
+            <span class="post-card__tag" style="background:rgba(44,140,153,.1);color:#0B5D69;">📸 Ảnh biển</span>
+            <h4 class="post-card__title">Hoàng hôn Biển Quỳnh đẹp đến nỗi không cần filter</h4>
+            <p class="post-card__desc">Bầu trời chuyển màu cam cháy lúc 6h chiều — khoảnh khắc chỉ ai có mặt mới cảm
+              nhận được.</p>
+            <div class="post-card__meta">
+              <span>2 giờ trước</span>
+              <div class="post-card__reactions">
+                <span>❤️ 312</span>
+                <span>💬 48</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-card reveal d2">
+          <div class="post-card__visual pc-v2">
+            🦐
+            <div class="post-card__visual-text">TOP 5 quán hải sản ngon nhất</div>
+          </div>
+          <div class="post-card__body">
+            <span class="post-card__tag" style="background:rgba(255,107,74,.1);color:#c0392b;">🦐 Ăn uống</span>
+            <h4 class="post-card__title">TOP 5 quán hải sản ngon-rẻ-sạch không thể bỏ qua</h4>
+            <p class="post-card__desc">Đã ăn thử hết, có giá niêm yết, không chặt chém — danh sách này sẽ cứu được nhiều
+              chuyến đi.</p>
+            <div class="post-card__meta">
+              <span>Hôm qua</span>
+              <div class="post-card__reactions">
+                <span>❤️ 487</span>
+                <span>💬 93</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-card reveal d3">
+          <div class="post-card__visual pc-v3">
+            🏡
+            <div class="post-card__visual-text">Review: Homestay Ocean View</div>
+          </div>
+          <div class="post-card__body">
+            <span class="post-card__tag" style="background:rgba(76,175,80,.1);color:#2E7D32;">🏡 Review</span>
+            <h4 class="post-card__title">Review thật: Homestay Ocean View có xứng đáng 350k/đêm?</h4>
+            <p class="post-card__desc">Phòng thực tế vs ảnh quảng cáo, tiện ích, khoảng cách bãi biển và thái độ chủ nhà
+              — tất cả được kiểm chứng.</p>
+            <div class="post-card__meta">
+              <span>2 ngày trước</span>
+              <div class="post-card__reactions">
+                <span>❤️ 224</span>
+                <span>💬 67</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-card reveal d4">
+          <div class="post-card__visual pc-v4">
+            🎉
+            <div class="post-card__visual-text">Mini-game: Tặng 1 đêm miễn phí!</div>
+          </div>
+          <div class="post-card__body">
+            <span class="post-card__tag" style="background:rgba(156,39,176,.1);color:#6A1B9A;">🎁 Mini-game</span>
+            <h4 class="post-card__title">Mini-game: Tag bạn bè để nhận 1 đêm homestay miễn phí!</h4>
+            <p class="post-card__desc">Cứ mỗi tháng, Biển Quỳnh — Nơi biển kể chuyện tặng 1-3 voucher cho followers may
+              mắn. Chỉ cần Like + Comment là tham gia!</p>
+            <div class="post-card__meta">
+              <span>3 ngày trước</span>
+              <div class="post-card__reactions">
+                <span>❤️ 891</span>
+                <span>💬 412</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-card reveal d5">
+          <div class="post-card__visual pc-v5">
+            🗺️
+            <div class="post-card__visual-text">Lịch trình 2N1Đ hoàn hảo</div>
+          </div>
+          <div class="post-card__body">
+            <span class="post-card__tag" style="background:rgba(24,119,242,.1);color:#1877F2;">🗺️ Tips</span>
+            <h4 class="post-card__title">Lịch trình 2N1Đ tại Biển Quỳnh — tiết kiệm mà chất</h4>
+            <p class="post-card__desc">Từ buổi sáng bãi biển, trưa chợ cá, chiều cà phê view biển đến tối nhậu hải sản —
+              sắp xếp hết cho bạn rồi.</p>
+            <div class="post-card__meta">
+              <span>1 tuần trước</span>
+              <div class="post-card__reactions">
+                <span>❤️ 633</span>
+                <span>💬 128</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-card reveal d1">
+          <div class="post-card__visual pc-v6">
+            🌟
+            <div class="post-card__visual-text">Sắp ra mắt: App đặt phòng!</div>
+          </div>
+          <div class="post-card__body">
+            <span class="post-card__tag" style="background:rgba(233,30,99,.1);color:#C2185B;">🚀 Tin tức</span>
+            <h4 class="post-card__title">Sắp ra mắt: Nền tảng đặt phòng & đặt bàn tại Biển Quỳnh</h4>
+            <p class="post-card__desc">Followers Fanpage sẽ là người đầu tiên nhận thông báo khi app ra mắt và được ưu
+              tiên đặt phòng mùa cao điểm.</p>
+            <div class="post-card__meta">
+              <span>2 tuần trước</span>
+              <div class="post-card__reactions">
+                <span>❤️ 1.2k</span>
+                <span>💬 235</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ STATS BAR ════════════════════════════════════════════ -->
+  <section class="stats-bar">
+    <div class="container">
+      <div class="stats-inner">
+        <div class="stat-item reveal d1">
+          <div class="stat-item__n" id="statFollowers">0</div>
+          <div class="stat-item__l">👥 Followers & đang tăng</div>
+        </div>
+        <div class="stat-item reveal d2">
+          <div class="stat-item__n" id="statPosts">0</div>
+          <div class="stat-item__l">📝 Bài viết đã đăng</div>
+        </div>
+        <div class="stat-item reveal d3">
+          <div class="stat-item__n" id="statReviews">0</div>
+          <div class="stat-item__l">⭐ Review xác thực</div>
+        </div>
+        <div class="stat-item reveal d4">
+          <div class="stat-item__n" id="statPartners">0</div>
+          <div class="stat-item__l">🤝 Đối tác đã đăng ký</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TESTIMONIALS ═════════════════════════════════════════ -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header reveal" style="text-align:center;">
+        <span class="section-tag section-tag--sun">Cộng đồng nói gì</span>
+        <h2 class="section-title">Followers yêu thích điều gì nhất? 💬</h2>
+      </div>
+
+      <div class="testi-grid">
+        <div class="testi-card reveal d1">
+          <div class="testi-card__quote">"</div>
+          <p class="testi-card__text">Từ hồi follow Biển Quỳnh — Nơi biển kể chuyện, mỗi chuyến đi biển đều chuẩn hơn
+            hẳn. Biết trước quán nào ngon, homestay nào đáng tiền — không còn lố bước như hồi trước nữa!</p>
+          <div class="testi-card__footer">
+            <div class="testi-card__av tav-1">👩</div>
+            <div>
+              <div class="testi-card__name">Nguyễn Thị Hà</div>
+              <div class="testi-card__role">Du khách từ Hà Nội</div>
+            </div>
+            <div class="testi-card__stars">★★★★★</div>
+          </div>
+        </div>
+
+        <div class="testi-card reveal d2">
+          <div class="testi-card__quote">"</div>
+          <p class="testi-card__text">Tôi mở homestay ở Biển Quỳnh được 2 năm. Nhờ Biển Quỳnh — Nơi biển kể chuyện chia
+            sẻ, khách biết đến mình nhiều hơn hẳn — mùa hè vừa rồi cháy phòng cả tháng!</p>
+          <div class="testi-card__footer">
+            <div class="testi-card__av tav-2">👨</div>
+            <div>
+              <div class="testi-card__name">Trần Văn Bình</div>
+              <div class="testi-card__role">Chủ Homestay Bình Minh</div>
+            </div>
+            <div class="testi-card__stars">★★★★★</div>
+          </div>
+        </div>
+
+        <div class="testi-card reveal d3">
+          <div class="testi-card__quote">"</div>
+          <p class="testi-card__text">Ảnh biển đẹp quá nên tôi save lại gần hết 😂 Nhưng quan trọng hơn là thông tin
+            review thật, không bị gây ảo tưởng. Follow rồi không muốn unfollow!</p>
+          <div class="testi-card__footer">
+            <div class="testi-card__av tav-3">👩‍🦱</div>
+            <div>
+              <div class="testi-card__name">Lê Minh Thư</div>
+              <div class="testi-card__role">Du khách từ TP.HCM</div>
+            </div>
+            <div class="testi-card__stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ MAIN CTA ══════════════════════════════════════════════ -->
+  <section class="cta-block" id="follow">
+    <div class="container">
+      <div class="cta-card reveal">
+        <span class="cta-card__emoji">🌊</span>
+        <h2 class="cta-card__title">
+          Biển Quỳnh đang chờ bạn.<br />
+          Follow để không bỏ lỡ gì nữa nhé!
+        </h2>
+        <p class="cta-card__sub">
+          Hàng trăm bài viết về ăn uống, lưu trú, review xác thực và ảnh biển đẹp — tất cả miễn phí, cập nhật hàng ngày.
+          Chỉ cần một cú nhấn.
+        </p>
+        <div class="cta-card__btns">
+          <a class="btn-fb-lg" href="https://www.facebook.com/BienQuynhOffical" target="_blank" rel="noopener"
+            id="mainCTA">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+              <path
+                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+            </svg>
+            👍 Like & Follow Fanpage ngay
+          </a>
+          <a class="btn-outline-white" href="https://www.facebook.com/BienQuynhOffical">
+            🏖️ Xem nền tảng đặt phòng
+          </a>
+        </div>
+        <p class="cta-card__note">✓ Hoàn toàn miễn phí &nbsp;·&nbsp; ✓ Không spam &nbsp;·&nbsp; ✓ Unfollow bất cứ lúc
+          nào</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ════════════════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="logo.png" alt="Logo" onerror="this.style.display='none';" />
+          <div>
+            <div class="footer-name">Biển Quỳnh — Nơi biển kể chuyện</div>
+            <div class="footer-tagline">— Nơi biển kể chuyện —</div>
+          </div>
+        </div>
+        <div class="footer-links">
+          <a href="https://www.facebook.com/BienQuynhOffical">Nền tảng du lịch</a>
+          <a href="https://www.facebook.com/BienQuynhOffical" target="_blank" rel="noopener">Facebook</a>
+          <a href="#why">Tại sao follow?</a>
+          <a href="https://www.facebook.com/BienQuynhOffical">Đăng ký đối tác</a>
+        </div>
+        <div class="footer-copy">© 2026 Biển Quỳnh — Nơi biển kể chuyện</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    'use strict';
+
+    /* ── Sticky header shadow ── */
+    const topbar = document.getElementById('topbar');
+    window.addEventListener('scroll', () => {
+      topbar.classList.toggle('shadow', window.scrollY > 10);
+    }, { passive: true });
+
+    /* ── Scroll reveal ── */
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => revealObs.observe(el));
+
+    /* ── Toast ── */
+    function showToast(msg, type) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.className = 'toast ' + (type || '');
+      t.offsetHeight;
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3500);
+    }
+
+    /* ── Animated counters ── */
+    function animateCount(el, target, suffix, duration) {
+      const start = performance.now();
+      const update = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 3);
+        const val = Math.round(ease * target);
+        el.textContent = val >= 1000 ? (val / 1000).toFixed(1) + 'k' : val + suffix;
+        if (progress < 1) requestAnimationFrame(update);
+      };
+      requestAnimationFrame(update);
+    }
+
+    const statsObs = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        animateCount(document.getElementById('statFollowers'), 1247, '', 1800);
+        animateCount(document.getElementById('statPosts'), 48, '', 1200);
+        animateCount(document.getElementById('statReviews'), 312, '', 1500);
+        animateCount(document.getElementById('statPartners'), 23, '', 1000);
+
+        // Phone mockup followers
+        setTimeout(() => {
+          const pf = document.getElementById('phoneFollowers');
+          if (pf) { pf.textContent = '1.2k'; }
+        }, 1800);
+
+        statsObs.disconnect();
+      }
+    }, { threshold: 0.3 });
+    statsObs.observe(document.querySelector('.stats-bar'));
+
+    /* ── FB Like button in phone mockup ── */
+    let liked = false;
+    function handleFollow(btn) {
+      if (liked) return;
+      liked = true;
+      btn.textContent = '✅ Đã thích';
+      btn.style.background = '#2E7D32';
+      showToast('🎉 Cảm ơn! Hãy ghé Fanpage để Like thật nhé!', 'success');
+    }
+
+    /* ── CTA click feedback ── */
+    ['heroCTA', 'topCTA', 'mainCTA'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('click', () => {
+        showToast('🌊 Đang chuyển đến Fanpage Biển Quỳnh — Nơi biển kể chuyện...', 'success');
+      });
+    });
+
+    /* ── Smooth scroll for anchors ── */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        const offset = topbar.offsetHeight + 12;
+        window.scrollTo({ top: target.getBoundingClientRect().top + scrollY - offset, behavior: 'smooth' });
+      });
+    });
+  </script>
+
+</body>
+
+</html>
