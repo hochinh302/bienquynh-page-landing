@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biển Quỳnh Booking — Sắp ra mắt</title>
+  <meta name="description"
+    content="Đăng ký nhận thông báo khi nền tảng đặt phòng, đặt bàn và kết nối du lịch Biển Quỳnh ra mắt." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Cormorant+Garamond:wght@600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --ocean: #0B5D69;
+      --teal: #2C8C99;
+      --sky: #5BC4D4;
+      --coral: #FF6B4A;
+      --sun: #FFA726;
+      --sand: #FFF4EC;
+      --white: #fff;
+      --ink: #163046;
+      --gray: #667085;
+      --border: #DCECF0;
+      --bg: #F0FAFB;
+      --font-main: 'Nunito', sans-serif;
+      --font-head: 'Cormorant Garamond', serif;
+      --r-lg: 28px;
+      --r-md: 18px;
+      --sh: 0 18px 60px rgba(11, 93, 105, .16)
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: linear-gradient(145deg, #E0F7FA 0%, #F0FAFB 46%, #FFF4EC 100%);
+      color: var(--ink);
+      min-height: 100vh
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 22px
+    }
+
+    .topbar {
+      padding: 20px 0
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      color: var(--ocean)
+    }
+
+    .brand img {
+      height: 42px
+    }
+
+    .brand small {
+      display: block;
+      color: var(--coral);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: .66rem
+    }
+
+    .hero {
+      padding: 28px 0 70px
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 48px;
+      align-items: center
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      background: rgba(255, 107, 74, .1);
+      color: var(--coral);
+      font-weight: 900;
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      padding: 8px 16px;
+      margin-bottom: 18px
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      background: var(--coral);
+      border-radius: 50%;
+      box-shadow: 0 0 0 8px rgba(255, 107, 74, .15)
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 4.4rem);
+      line-height: 1.04;
+      font-weight: 900;
+      letter-spacing: -.04em;
+      margin-bottom: 22px
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, var(--ocean), var(--sky));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent
+    }
+
+    .sub {
+      font-size: 1.08rem;
+      line-height: 1.8;
+      color: var(--gray);
+      max-width: 620px;
+      margin-bottom: 28px
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 32px
+    }
+
+    .chip {
+      background: #fff;
+      border: 1.5px solid var(--border);
+      box-shadow: 0 4px 16px rgba(11, 93, 105, .08);
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-weight: 800;
+      font-size: .88rem
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, .72);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, .8);
+      border-radius: 32px;
+      padding: 28px;
+      box-shadow: var(--sh)
+    }
+
+    .steps {
+      display: grid;
+      gap: 16px
+    }
+
+    .step {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start
+    }
+
+    .num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal), var(--sky));
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      flex: 0 0 auto
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 4px
+    }
+
+    .step p {
+      color: var(--gray);
+      line-height: 1.55;
+      font-size: .92rem
+    }
+
+    .form-card {
+      background: #fff;
+      border-radius: 32px;
+      padding: 30px;
+      box-shadow: var(--sh);
+      border: 1px solid rgba(11, 93, 105, .08)
+    }
+
+    .form-title {
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin-bottom: 8px
+    }
+
+    .form-sub {
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 22px
+    }
+
+    .type-switch {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 20px
+    }
+
+    .type-switch label {
+      border: 1.5px solid var(--border);
+      border-radius: 18px;
+      padding: 12px;
+      cursor: pointer;
+      font-weight: 900;
+      text-align: center;
+      background: var(--bg)
+    }
+
+    .type-switch input {
+      display: none
+    }
+
+    .type-switch label:has(input:checked) {
+      background: linear-gradient(135deg, var(--ocean), var(--teal));
+      color: #fff;
+      border-color: transparent
+    }
+
+    form {
+      display: grid;
+      gap: 13px
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px
+    }
+
+    .field label {
+      display: block;
+      font-size: .78rem;
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 6px
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 13px 14px;
+      font: inherit;
+      color: var(--ink);
+      outline: none;
+      background: #fff
+    }
+
+    .field textarea {
+      min-height: 92px;
+      resize: vertical
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 4px rgba(44, 140, 153, .12)
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 20px;
+      padding: 16px 22px;
+      background: linear-gradient(135deg, var(--coral), var(--sun));
+      color: #fff;
+      font-weight: 900;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(255, 107, 74, .28)
+    }
+
+    .btn:disabled {
+      opacity: .65;
+      cursor: not-allowed
+    }
+
+    .form-status {
+      min-height: 22px;
+      font-weight: 800;
+      font-size: .9rem
+    }
+
+    .form-status.success {
+      color: #1A7F5E
+    }
+
+    .form-status.error {
+      color: #c0392b
+    }
+
+    .back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 18px;
+      color: var(--teal);
+      font-weight: 900
+    }
+
+    .privacy {
+      font-size: .76rem;
+      color: var(--gray);
+      line-height: 1.5
+    }
+
+    .foot {
+      padding: 28px 0;
+      color: var(--gray);
+      font-size: .86rem;
+      text-align: center
+    }
+
+    @media(max-width:960px) {
+      .grid {
+        grid-template-columns: 1fr
+      }
+
+      .form-card {
+        order: -1
+      }
+
+      .row {
+        grid-template-columns: 1fr
+      }
+    }
+
+    @media(max-width:560px) {
+      .type-switch {
+        grid-template-columns: 1fr
+      }
+
+      .form-card,
+      .feature-card {
+        border-radius: 24px;
+        padding: 22px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container">
+      <a class="brand" href="/">
+        <img src="./bien-quynh-offical-logo.png" alt="Biển Quỳnh" onerror="this.style.display='none'" />
+        <span>Biển Quỳnh <small>Nơi biển kể chuyện</small></span>
+      </a>
+    </div>
+  </header>
+
+  <main class="hero">
+    <div class="container grid">
+      <section>
+        <div class="eyebrow"><span class="pulse"></span> Nền tảng booking sắp ra mắt</div>
+        <h1>Đặt phòng, đặt bàn và khám phá <span class="highlight">Biển Quỳnh</span> dễ hơn.</h1>
+        <p class="sub">Biển Quỳnh đang xây dựng nền tảng giúp du khách tìm nơi lưu trú, nhà hàng, dịch vụ địa phương
+          minh bạch hơn — đồng thời giúp homestay, khách sạn, nhà hàng tiếp cận khách hàng tốt hơn.</p>
+        <div class="chips">
+          <span class="chip">🏡 Lưu trú</span><span class="chip">🦐 Nhà hàng</span><span class="chip">🚕 Dịch vụ địa
+            phương</span><span class="chip">🎁 Ưu tiên dùng thử</span>
+        </div>
+        <div class="feature-card">
+          <div class="steps">
+            <div class="step">
+              <div class="num">1</div>
+              <div><strong>Du khách để lại nhu cầu</strong>
+                <p>Ngày đi, số người, nhu cầu đặt phòng/đặt bàn để được thông báo khi có lựa chọn phù hợp.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="num">2</div>
+              <div><strong>Merchant đăng ký trước</strong>
+                <p>Khách sạn, homestay, nhà hàng có thể nhận tư vấn và được ưu tiên dùng thử miễn phí giai đoạn đầu.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="num">3</div>
+              <div><strong>Ra mắt theo nhu cầu thật</strong>
+                <p>Dữ liệu đăng ký giúp Biển Quỳnh xây đúng thứ khách và đối tác cần, không làm app cho đẹp rồi bỏ đó.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="back" href="index.html">← Quay lại landing page</a>
+      </section>
+
+      <section class="form-card">
+        <h2 class="form-title">Đăng ký nhận thông báo sớm</h2>
+        <p class="form-sub">Chọn đúng nhóm của bạn để Biển Quỳnh lưu thông tin và liên hệ phù hợp.</p>
+        <form id="leadForm">
+          <div class="type-switch">
+            <label><input type="radio" name="lead_type" value="user" checked /> Tôi là du khách</label>
+            <label><input type="radio" name="lead_type" value="merchant" /> Tôi là đối tác</label>
+          </div>
+
+          <div class="field" data-fields="user">
+            <label>Họ tên</label>
+            <input name="name" placeholder="Ví dụ: Nguyễn Văn An" data-required-user required />
+          </div>
+
+          <div class="field" data-fields="merchant" style="display:none">
+            <label>Tên cơ sở</label>
+            <input name="business_name" placeholder="Ví dụ: Homestay Bình Minh" data-required-merchant />
+          </div>
+
+          <div class="row">
+            <div class="field" data-fields="merchant" style="display:none">
+              <label>Loại hình</label>
+              <select name="business_type" data-required-merchant>
+                <option value="">Chọn loại hình</option>
+                <option>Khách sạn</option>
+                <option>Homestay</option>
+                <option>Nhà nghỉ</option>
+                <option>Nhà hàng</option>
+                <option>Dịch vụ du lịch</option>
+                <option>Khác</option>
+              </select>
+            </div>
+            <div class="field" data-fields="merchant" style="display:none">
+              <label>Người liên hệ</label>
+              <input name="contact_name" placeholder="Tên người phụ trách" data-required-merchant />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label>Số điện thoại/Zalo</label>
+              <input name="phone" inputmode="tel" placeholder="Ví dụ: 09xxxxxxxx" required />
+            </div>
+            <div class="field">
+              <label>Email nếu có</label>
+              <input name="email" type="email" placeholder="email@example.com" />
+            </div>
+          </div>
+
+          <div class="row" data-fields="user">
+            <div class="field">
+              <label>Dự kiến đi ngày nào?</label>
+              <input name="travel_date" type="date" />
+            </div>
+            <div class="field">
+              <label>Số người</label>
+              <input name="number_of_people" type="number" min="1" placeholder="Ví dụ: 4" />
+            </div>
+          </div>
+
+          <div class="field" data-fields="merchant" style="display:none">
+            <label>Địa chỉ cơ sở</label>
+            <input name="address" placeholder="Khu vực, xã/phường, huyện/thị xã..." />
+          </div>
+
+          <div class="field">
+            <label>Nhu cầu chính</label>
+            <select name="need" required>
+              <option value="">Chọn nhu cầu</option>
+              <option data-fields="user">Tìm phòng lưu trú</option>
+              <option data-fields="user">Đặt bàn/ăn hải sản</option>
+              <option data-fields="user">Tư vấn lịch trình</option>
+              <option data-fields="merchant">Muốn đăng phòng/dịch vụ lên nền tảng</option>
+              <option data-fields="merchant">Muốn nhận booking từ khách</option>
+              <option data-fields="merchant">Muốn dùng thử miễn phí</option>
+              <option>Khác</option>
+            </select>
+          </div>
+
+          <div class="field" data-fields="merchant" style="display:none">
+            <label>Quan tâm dùng thử miễn phí?</label>
+            <select name="free_trial_interest">
+              <option value="Có">Có</option>
+              <option value="Cần tư vấn thêm">Cần tư vấn thêm</option>
+              <option value="Chưa chắc">Chưa chắc</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Ghi chú thêm</label>
+            <textarea name="note" placeholder="Bạn muốn Biển Quỳnh hỗ trợ điều gì?"></textarea>
+          </div>
+
+          <p class="privacy">Bằng cách gửi thông tin, bạn đồng ý để Biển Quỳnh liên hệ lại qua điện thoại/Zalo/email cho
+            mục đích tư vấn và thông báo ra mắt.</p>
+          <button class="btn" id="submitBtn" type="submit">Gửi thông tin đăng ký</button>
+          <div id="formStatus" class="form-status"></div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer class="foot">© 2026 Biển Quỳnh — Nơi biển kể chuyện</footer>
+
+  <script>
+    window.BQ_CONFIG = {
+      GOOGLE_SCRIPT_URL: 'PASTE_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE',
+      DEBUG: true
+    };
+  </script>
+  <script src="./js/google-sheet-api.js"></script>
+  <script>window.BQSheetAPI?.trackPageView?.('coming_soon_page');</script>
+  <script src="./js/form-submit.js"></script>
+</body>
+
+</html>
